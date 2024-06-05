@@ -1,32 +1,28 @@
-.ciruclo{
-    height: 60px;
-    width: 60px;
-    margin-left: 80%;
-    margin-top: -50%;
-    border-radius: 50px;
-}
 h2{
-    text-align: center;
-    
-}
-
-.formu{
-  margin-left: 470px ;
-  margin-bottom: -25px ;
  
-}
-body{
-
-  background-color: rgb(252, 234, 184);
+  text-align: center;
 }
 
-.borrar{
-  height: 12x;
-  width: 12px;
-}
 
-.checkbox{
- 
+
+#tareas{
+  min-height: 500px;
+  border: 2px solid black;
+}
+main{
+  width: 1000px;
+
+}
+.contador-de-tareas{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
-
+  justify-content: right;
+}
+.contnedor{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

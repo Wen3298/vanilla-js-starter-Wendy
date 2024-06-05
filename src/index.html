@@ -11,28 +11,36 @@
 	<h2>To do List</h2>
 	<!-- Formulario-->
 
-	<form action="#" id="Formulario">
+	<main>
+        <div class="checkbox" id="ch1">
+            <div class="ch1" id="contTareas">
+                <label>
+                </label>
+            </div>
+        </div>
+        <form class="contnedor" action="#" id="Formulario">
 
-		<div class="formu">
-			<input type="text" placeholder="Escribe tu tarea aqui">
-			<input type="submit" value="Agregar" id="addbtn">
-		</div>
-		<div class="checkbox" id="ch1">
-			<div class="ch1" id="contTareas">
-				<label>
-					<input type="checkbox">
-				</label>
-				<img src="./imagenes/pngegg (1).png" class="borrar" id="btnborrar" onclick="btnborrar">
-			</div>
-		</div>
+            <div class="formu">
+                <input type="text" placeholder="Escribe tu tarea aqui" id="textoo">
+                <input type="button" value="Agregar" id="addbtn">
+            </div>
+            <div>
+                <input class="contador-de-tareas" type="number" class="ciruclo">
+            </div>
+    
+    
+            
+    
+        </form>
+        
+           
+    
+        
+     <div id="tareas">
 
-	</form>
-	<div class="contador de tareas">
-		<input type="number" class="ciruclo">
-
-	</div>
-
-
+     </div>
+    
+    </main>
 
 
 	<script src="./index.js" type="module"></script>
