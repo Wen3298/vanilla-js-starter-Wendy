@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded",()=>{
     let btnagre = document.getElementById("addbtn")
     let tareas = document.getElementById("tareas")
+    let input = document.getElementById("textoo")    
+ // para que no me deje agregar tareas si no tengo nada escrito
+    
 
 
 //GET
@@ -54,7 +57,14 @@ async function postDatos() {
         console.error(error);
     }
 }
-btnagre.addEventListener("click",postDatos)
+// para que no  deje agregar tareas si no tengo nada escrito
+btnagre.addEventListener("click",()=>{
+    if(input.value==""){
+        alert("Escribe tu tarea primero !")
+    }else{
+        postDatos()
+    }
+})
 
 //DELETE
 async function deleteTask(id) {
