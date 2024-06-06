@@ -76,4 +76,3 @@ async function deleteTask(id) {
 })
 
 
-getDatos()

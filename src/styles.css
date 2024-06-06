@@ -1,28 +1,102 @@
-h2{
- 
-  text-align: center;
+
+:root{
+  ---whithe: #fff ;
+  ---purple: #c765e3;
+  ---blue-light:#7cd6e6;
+  ---blue: #3067a7;
+  ---green:#7ae1aa;
 }
 
+body{
+  background: linear-gradient(to bottom ,var( ---purple),var(---blue-light), var(---blue-light), var(---green)) ;
+  
+}
+h2{
+ margin-bottom: -20px;
+  text-align: center;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: 100px;
+  font-size: 30px;
+}
+ .formu{
+  margin: auto;
+  padding: 10px;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding: 30px;
+  font-size: 20px;
+ }
+ .inputTarea {
+  width: 100%;
+  border: none;
+}
+
+ .formutexo{
+  background-color: var(---whithe);
+  border-radius: 20px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin-left: 300px;
+  padding: 10px;
+  gap: 80px;
+
+ }
+
+ .formutexto.texxto{
+ height: 100%;
+ width: 100%;
+  
+ }
+
+ .Texxto{
+  margin-left: 300px;
+ }
+.botonn{
+  border-color: #53dde7;
+  border-radius: 10px;
+  background-color: var(---purple) ;
+}
 
 
 #tareas{
   min-height: 500px;
-  border: 2px solid black;
+  border: 2px solid rgb(216, 65, 211);
+  margin: auto;
 }
 main{
-  width: 1000px;
+  width: 1100px;
+  height: 1100px;
+  margin: auto;
 
 }
 .contador-de-tareas{
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  border-color: #fff;
   display: flex;
   align-items: center;
   justify-content: right;
+  background-color: var(---blue-light) ;
 }
 .contnedor{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.n-contador{
+  padding-right: 50px;
+  display: flex;
+
+}
+.Tarea{
+  padding: 10px;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+ 
 }
