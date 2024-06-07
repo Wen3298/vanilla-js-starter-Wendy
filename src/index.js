@@ -1,8 +1,20 @@
+import Swal from 'sweetalert2'
+import "./estilosAlert.css"
 document.addEventListener("DOMContentLoaded",()=>{
     let btnagre = document.getElementById("addbtn")
     let tareas = document.getElementById("tareas")
     let input = document.getElementById("textoo")  
-
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        iconColor: 'white',
+        customClass: {
+          popup: 'colored-toast',
+        },
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+      })
 //GET
 async function getDatos() {
     try {
@@ -57,15 +69,25 @@ async function postDatos() {
         const datos = await respuesta.json()
         console.log(datos);
         getDatos()
+        textoo.value = ""
     } catch (error) {
         console.error(error);
     }
 }
 // para que no  deje agregar tareas si no tengo nada escrito
-btnagre.addEventListener("click",()=>{
+btnagre.addEventListener("click",async()=>{
     if(input.value==""){
-        alert("Escribe tu tarea primero !")
+        Swal.fire({
+            title: 'Alto!',
+            text: 'Por favor ingrese una tarea',
+            icon: 'error',
+            confirmButtonText: '👍'
+          })
     }else{
+       await Toast.fire({
+    icon: 'success',
+    title: 'Agregando tarea 😎',
+  })
         postDatos()
     }
 })
@@ -87,6 +109,9 @@ async function deleteTask(id) {
         console.error(error);
     }
 }
+
+getDatos()
 })
+
 
 
