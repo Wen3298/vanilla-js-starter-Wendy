@@ -1,39 +1,43 @@
 document.addEventListener("DOMContentLoaded",()=>{
     let btnagre = document.getElementById("addbtn")
     let tareas = document.getElementById("tareas")
-    let input = document.getElementById("textoo")    
- // para que no me deje agregar tareas si no tengo nada escrito
-    
-
+    let input = document.getElementById("textoo")  
 
 //GET
- async function getDatos() {
+async function getDatos() {
     try {
         tareas.innerHTML=""
         const respuesta = await fetch("http://localhost:3000/api/task")
-    const datos = await respuesta.json()
-    datos.forEach(tarea=>{
-        let div = document.createElement("div")
-        let p = document.createElement("p")
-        let check = document.createElement("input")
-        check.type = "checkbox"
-        p.innerHTML=tarea.titulo
-        div.appendChild(p)
-        tareas.appendChild(div)
-        let btnEliminar = document.createElement("button")
-        btnEliminar.innerHTML="Eliminar"
-        p.appendChild(check)
-        p.appendChild(btnEliminar)
-        btnEliminar.addEventListener("click",()=>{
-            deleteTask(tarea.id)
-            
+        const datos = await respuesta.json()
+        let numtask = 0
+        
+        datos.forEach(tarea=>{
+            let div = document.createElement("div")
+            let p = document.createElement("p")
+            let check = document.createElement("input")
+            check.type = "checkbox"
+            p.innerHTML=tarea.titulo
+            div.appendChild(p)
+            tareas.appendChild(div)
+            let btnEliminar = document.createElement("button")
+            btnEliminar.innerHTML="Eliminar"
+            p.appendChild(check)
+            p.appendChild(btnEliminar)
+            numtask++
+
+            btnEliminar.addEventListener("click",()=>{
+                deleteTask(tarea.id)
+                
+            })
         })
-    })
-    console.log(getDatos);  
-    } catch (error) {
-      console.error(error);  
+        //Agregar en el HTML el Contador
+        document.getElementById("numTask").innerHTML = numtask
+        console.log(getDatos);  
+    } 
+    catch (error) {
+        console.error(error);  
     }  
- }
+}
 
 //POST
 async function postDatos() {
