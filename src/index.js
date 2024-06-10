@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let btnagre = document.getElementById("addbtn")
     let tareas = document.getElementById("tareas")
     let input = document.getElementById("textoo")  
+    //Sweet alert
     const Toast = Swal.mixin({
         toast: true,
         position: 'center',
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded",()=>{
           popup: 'colored-toast',
         },
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
         timerProgressBar: true,
       })
 //GET
@@ -22,6 +23,7 @@ async function getDatos() {
         const respuesta = await fetch("http://localhost:3000/api/task")
         const datos = await respuesta.json()
         let numtask = 0
+        
         
         datos.forEach(tarea=>{
             let div = document.createElement("div")
@@ -36,13 +38,14 @@ async function getDatos() {
             p.appendChild(check)
             p.appendChild(btnEliminar)
             numtask++
+            
 
             btnEliminar.addEventListener("click",()=>{
                 deleteTask(tarea.id)
                 
             })
         })
-        //Agregar en el HTML el Contador
+        //Agrega el numero de tareas que tengo
         document.getElementById("numTask").innerHTML = numtask
         console.log(getDatos);  
     } 
@@ -76,20 +79,20 @@ async function postDatos() {
 }
 // para que no  deje agregar tareas si no tengo nada escrito
 btnagre.addEventListener("click",async()=>{
-    if(input.value==""){
-        Swal.fire({
-            title: 'Alto!',
-            text: 'Por favor ingrese una tarea',
-            icon: 'error',
-            confirmButtonText: '👍'
-          })
-    }else{
-       await Toast.fire({
-    icon: 'success',
-    title: 'Agregando tarea 😎',
-  })
-        postDatos()
-    }
+        if(input.value.trim("")===""){
+            Swal.fire({
+                title: 'Alto!',
+                text: 'Por favor ingrese una tarea',
+                icon: 'error',
+                confirmButtonText: '👍'
+            })
+        }else{
+        await Toast.fire({
+        icon: 'success',
+        title: 'Agregando tarea 😎',
+    })
+            postDatos()
+        }
 })
 
 //DELETE
