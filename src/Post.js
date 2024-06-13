@@ -1,4 +1,3 @@
-
 //POST
 async function registro(nom,Correo,Contrasenia) {
     try {
@@ -8,23 +7,22 @@ async function registro(nom,Correo,Contrasenia) {
                 "Content-type": "application/json; charset=UTF-8"
               },
               body: JSON.stringify(
-
                 {
-                user:nom ,
+                user:nom,
                 email:Correo,
                 password:Contrasenia,
             }
-
               )
         })
-
-
+        let datos = await respuesta.json()
+        console.log(datos)
     } catch (error) {
-        
+        console.log(error)
     }
-    
 }
-export{registro}
+
+
+export {registro}
 
 
 
@@ -38,5 +36,3 @@ export{registro}
 
 
 
-
-})
